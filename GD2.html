@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guided 2 - Vue JS</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Hallo, aku {{Wanita.nama}}</h1>
+      <p>
+        Umurku {{Wanita.umur}} tahun dan aku bekerja sebagai seorang
+        {{Wanita.pekerjaan}}
+        <br />
+        Aku <span v-if="Wanita.status == 'menikah'">Sudah Menikah</span>
+        <span v-else-if="Wanita.status == 'belum'">Masih Lajang Hehehehe</span>
+      </p>
+
+      <p v-show="Wanita.skills">Kemampuanku adalah :</p>
+      <!---ul dan li merupakan tag list rendring untuk menampilkan data array-->
+      <ul v-for="(skill, index) in Wanita.skills" :key="skill">
+        <li>{{skill}}</li>
+      </ul>
+      <div>
+        <button @click="kurangiUmur">Kurangi Umur</button>
+        <button @click="tambahUmur">Tambah Umur</button>
+      </div>
+      <div>
+        <button v-on:click="umurplus">Tambah lagi donk</button>
+        <button v-on:click="umurmin">Kurangi ah biar makin awet muda</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        Wanita: {
+          nama: "Karen",
+          umur: 20,
+          pekerjaan: "Programmer",
+          status: "belum",
+          skills: ["mencuci piring", "coding"],
+        },
+      },
+      methods: {
+        tambahUmur() {
+          this.Wanita.umur++;
+        },
+        kurangiUmur() {
+          this.Wanita.umur--;
+        },
+        umurplus() {
+          this.Wanita.umur++;
+        },
+        umurmin() {
+          this.Wanita.umur--;
+        },
+      },
+    });
+  </script>
+</html>

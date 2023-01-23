@@ -1,0 +1,9 @@
+Guided 1 ----------------
+1. Data & methods
+2. Data binding
+3. Two way data binding
+
+Guided 2 ----------------
+4. Conditional rendering
+5. List rendering
+6. Event handling
